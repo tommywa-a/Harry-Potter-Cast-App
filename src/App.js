@@ -12,7 +12,6 @@ const App = () => {
 		const fetchItems = async () => {
 			const result = await axios(`https://hp-api.onrender.com/api/characters`)
 
-			console.log(result.data)
 			setItems(result.data)
 			setIsloading(false)
 		}
