@@ -8,21 +8,22 @@ import './App.css'
 const App = () => {
 	const [items, setItems] = useState([])
 	const [isLoading, setIsloading] = useState([])
+	const [query, setQuery] = useState('')
 
 	useEffect(() => {
 		const fetchItems = async () => {
-			const result = await axios(`https://hp-api.onrender.com/api/characters`)
+			const result = await axios(`https://hp-api.onrender.com/api/characters?name=${query}`)
 
 			setItems(result.data)
 			setIsloading(false)
 		}
 		fetchItems()
-	}, [])
+	}, [query])
 
 	return (
 		<div className='container'>
 			<Header />
-      <Search />
+      <Search getQuery={(q) => setQuery(q)} />
       <CharacterGrid isLoading={isLoading} items={items}/>
 		</div>
 	)

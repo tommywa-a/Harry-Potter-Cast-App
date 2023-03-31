@@ -11,13 +11,10 @@ const CharacterItem = ({ item }) => {
           <h1>{item.name}</h1>
           <ul>
             <li>
-              <strong>Actor Movie Name:</strong> {item.name}
+              <strong>Actor Name:</strong> {item.actor}
             </li>
             <li>
-              <strong>Actor Real Name:</strong> {item.actor}
-            </li>
-            <li>
-              <strong>Nickname:</strong> {item.alternate_names}
+              <strong>Nickname:</strong> {item.alternate_names[0]} <br/> {item.alternate_names[1]}
             </li>
             <li>
               <strong>Birthday:</strong> {item.dateOfBirth}
