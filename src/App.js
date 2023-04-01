@@ -7,8 +7,10 @@ import './App.css'
 
 const App = () => {
 	const [items, setItems] = useState([])
-	const [isLoading, setIsloading] = useState([])
+	const [isLoading, setIsloading] = useState(true)
 	const [query, setQuery] = useState('')
+	const [currentPage, setCurrentPage] = useState(1)
+	const [postsPerPage, setPostsPerPage] = useState(10)
 
 	useEffect(() => {
 		const fetchItems = async () => {
