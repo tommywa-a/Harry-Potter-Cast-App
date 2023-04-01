@@ -10,7 +10,7 @@ const App = () => {
 	const [isLoading, setIsloading] = useState(true)
 	const [query, setQuery] = useState('')
 	const [currentPage, setCurrentPage] = useState(1)
-	const [postsPerPage, setPostsPerPage] = useState(10)
+	const [itemsPerPage, setItemsPerPage] = useState(10)
 
 	useEffect(() => {
 		const fetchItems = async () => {
@@ -21,6 +21,11 @@ const App = () => {
 		}
 		fetchItems()
 	}, [query])
+
+	// Get current items
+	const indexOfLastItem = currentPage * itemsPerPage
+	const indexOfFirstItem = indexOfLastItem - itemsPerPage
+	const currentItems = items.slice(indexOfFirstItem, indexOfLastItem)
 
 	return (
 		<div className='container'>
