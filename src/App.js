@@ -31,7 +31,7 @@ const App = () => {
 		<div className='container'>
 			<Header />
       <Search getQuery={(q) => setQuery(q)} />
-      <CharacterGrid isLoading={isLoading} items={items}/>
+      <CharacterGrid isLoading={isLoading} items={currentItems}/>
 		</div>
 	)
 }
