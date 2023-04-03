@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Header from './components/ui/Header'
 import CharacterGrid from './components/characters/CharacterGrid'
+import Pagination from './components/ui/Pagination'
 import Search from './components/ui/Search'
 import './App.css'
 
@@ -10,7 +11,7 @@ const App = () => {
 	const [isLoading, setIsloading] = useState(true)
 	const [query, setQuery] = useState('')
 	const [currentPage, setCurrentPage] = useState(1)
-	const [itemsPerPage, setItemsPerPage] = useState(10)
+	const [itemsPerPage, setItemsPerPage] = useState(25)
 
 	useEffect(() => {
 		const fetchItems = async () => {
@@ -32,6 +33,7 @@ const App = () => {
 			<Header />
       <Search getQuery={(q) => setQuery(q)} />
       <CharacterGrid isLoading={isLoading} items={currentItems}/>
+			<Pagination itemsPerPage={itemsPerPage} totalItems={items.length} />
 		</div>
 	)
 }
