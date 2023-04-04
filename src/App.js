@@ -23,17 +23,24 @@ const App = () => {
 		fetchItems()
 	}, [query])
 
+	const queryFunction = (q) => {
+		setQuery(q)
+	}
+
 	// Get current items
 	const indexOfLastItem = currentPage * itemsPerPage
 	const indexOfFirstItem = indexOfLastItem - itemsPerPage
 	const currentItems = items.slice(indexOfFirstItem, indexOfLastItem)
 
+	// Change page
+	const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
 	return (
 		<div className='container'>
 			<Header />
-      <Search getQuery={(q) => setQuery(q)} />
+      <Search getQuery={queryFunction} />
       <CharacterGrid isLoading={isLoading} items={currentItems}/>
-			<Pagination itemsPerPage={itemsPerPage} totalItems={items.length} />
+			<Pagination itemsPerPage={itemsPerPage} totalItems={items.length} paginate={paginate}/>
 		</div>
 	)
 }
