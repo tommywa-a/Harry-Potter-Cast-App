@@ -15,7 +15,9 @@ const App = () => {
 
 	useEffect(() => {
 		const fetchItems = async () => {
-			const result = await axios(`https://hp-api.onrender.com/api/characters?name=${query}`)
+			const result = await axios(
+				`https://hp-api.onrender.com/api/characters?name=${query}`
+			)
 
 			setItems(result.data)
 			setIsloading(false)
@@ -38,9 +40,16 @@ const App = () => {
 	return (
 		<div className='container'>
 			<Header />
-      <Search getQuery={queryFunction} />
-      <CharacterGrid isLoading={isLoading} items={currentItems}/>
-			<Pagination itemsPerPage={itemsPerPage} totalItems={items.length} paginate={paginate}/>
+			<Search getQuery={queryFunction} />
+			<CharacterGrid
+				isLoading={isLoading}
+				items={currentItems}
+			/>
+			<Pagination
+				itemsPerPage={itemsPerPage}
+				totalItems={items.length}
+				paginate={paginate}
+			/>
 		</div>
 	)
 }
