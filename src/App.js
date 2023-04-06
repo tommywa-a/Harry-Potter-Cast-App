@@ -16,7 +16,7 @@ const App = () => {
 	useEffect(() => {
 		const fetchItems = async () => {
 			const result = await axios(
-				`https://hp-api.onrender.com/api/characters`, { params: {where: 'gender==female'}} 
+				`https://hp-api.onrender.com/api/characters`, { params: {where: 'gender===female'}} 
 			)
 
 			setItems(result.data)
