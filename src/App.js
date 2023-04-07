@@ -19,6 +19,8 @@ const App = () => {
 				`https://hp-api.onrender.com/api/characters`, { params: {where: 'gender===female'}} 
 			)
 
+			console.log(result.data, {params: {where: 'yearOfBirth > 1979'}})
+
 			setItems(result.data)
 			setIsloading(false)
 		}
