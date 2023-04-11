@@ -16,19 +16,27 @@ const App = () => {
 	useEffect(() => {
 		const fetchItems = async () => {
 			const result = await axios(
-				`https://hp-api.onrender.com/api/characters`, { params: {where: 'gender===female'}} 
+				`https://hp-api.onrender.com/api/characters`, 
 			)
 
-			console.log(result.data, {params: {where: 'yearOfBirth > 1979'}})
+			// console.log(result.data)
 
 			setItems(result.data)
 			setIsloading(false)
 		}
 		fetchItems()
-	}, [query])
+	}, [])
 
 	const queryFunction = (q) => {
-		setQuery(q)
+		if (q.length > 0) {
+			console.log(q)
+			setQuery(q)
+			const character = items.filter((item) => {
+				return item.name.toLowerCase().includes(q.toLowerCase()) })
+			setItems(character)
+			return
+		}
+		setItems(items)
 	}
 
 	// Get current items
