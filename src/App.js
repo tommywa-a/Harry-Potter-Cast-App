@@ -28,15 +28,13 @@ const App = () => {
 	}, [])
 
 	const queryFunction = (q) => {
-		if (q.length > 0) {
-			console.log(q)
-			setQuery(q)
-			const character = items.filter((item) => {
-				return item.name.toLowerCase().includes(q.toLowerCase()) })
-			setItems(character)
-			return
-		}
-		setItems(items)
+		
+		console.log(q)
+		setQuery(q)
+		const character = items.filter((item) => {
+			return item.name.toLowerCase().includes(q.toLowerCase()) })
+		setItems(character)
+		console.log(character)
 	}
 
 	// Get current items
