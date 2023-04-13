@@ -11,7 +11,7 @@ const App = () => {
 	const [isLoading, setIsloading] = useState(true)
 	const [query, setQuery] = useState('')
 	const [currentPage, setCurrentPage] = useState(1)
-	const [itemsPerPage, setItemsPerPage] = useState(25)
+	const [itemsPerPage, setItemsPerPage] = useState(8)
 
 	useEffect(() => {
 		const fetchItems = async () => {
@@ -28,13 +28,15 @@ const App = () => {
 	}, [])
 
 	const queryFunction = (q) => {
-		
-		console.log(q)
-		setQuery(q)
-		const character = items.filter((item) => {
-			return item.name.toLowerCase().includes(q.toLowerCase()) })
-		setItems(character)
-		console.log(character)
+		if (q.length > 0) {
+			console.log(q)
+			setQuery(q)
+			const character = items.filter((item) => {
+				return item.name.toLowerCase().includes(q.toLowerCase()) })
+			setItems(character)
+			return
+		}
+		setItems(items)
 	}
 
 	// Get current items

@@ -3,7 +3,6 @@ import React from 'react'
 const CharacterItem = ({ item }) => {
 	return (
 		<>
-			<h3>{item.name}</h3>
 			<div className='card'>
 				<div className='card-inner'>
 					<div className='card-front'>
